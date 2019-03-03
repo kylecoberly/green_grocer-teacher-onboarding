@@ -41,8 +41,8 @@ def apply_clearance(cart)
     if item[:clearance]
       item[:price] *= 0.8
     end
-    label => item
-  }
+    [label, item]
+  }.to_h
 end
 
 def checkout(cart, coupons)
