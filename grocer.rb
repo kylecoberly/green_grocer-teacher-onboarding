@@ -49,14 +49,6 @@ def apply_clearance(cart)
   }.to_h
 end
 
-def find_cart_item(cart, name)
-  match = cart.find {|label, item|
-    label.eql? name
-  }
-
-  [match].to_h
-end
-
 def checkout(cart, coupons)
   cart = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
 
