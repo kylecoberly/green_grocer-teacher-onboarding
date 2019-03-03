@@ -17,19 +17,21 @@ end
 
 def apply_coupons(cart, coupons)
   coupons.reduce(cart) {|cart, coupon|
-    name = coupon[:item]
-    cart_count = cart[name][:count]
-    coupon_count = coupon[:num]
-    amount_to_subtract = cart_count >= coupon_count ? coupon_count : cart_count
+    if cart[name].exist?
+      name = coupon[:item]
+      cart_count = cart[name][:count]
+      coupon_count = coupon[:num]
+      amount_to_subtract = cart_count >= coupon_count ? coupon_count : cart_count
 
-    cart[name][:count] = cart_count - amount_to_subtract
-    cart["#{name} W/COUPON"] = {
-      :price => coupon[:cost],
-      :clearance => cart[name][:clearance],
-      :count => 1
-    }
+      cart[name][:count] = cart_count - amount_to_subtract
+      cart["#{name} W/COUPON"] = {
+        :price => coupon[:cost],
+        :clearance => cart[name][:clearance],
+        :count => 1
+      }
 
-    cart
+      cart
+    end
   }
 end
 
