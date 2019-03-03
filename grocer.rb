@@ -17,7 +17,7 @@ end
 
 def apply_coupons(cart, coupons)
   coupons.reduce(cart) {|cart, coupon|
-    if cart[name].exist?
+    if cart[name].exists?
       name = coupon[:item]
       cart_count = cart[name][:count]
       coupon_count = coupon[:num]
