@@ -45,6 +45,10 @@ def apply_clearance(cart)
   }.to_h
 end
 
+def find_item cart, name
+  cart.find {|label, item| label.eql?(name)}
+end
+
 def checkout(cart, coupons)
   cart = consolidate_cart(cart)
   coupons = coupons.select {|coupon| cart[coupon[:item]][:count] >= coupon[:num] }
