@@ -47,8 +47,9 @@ end
 
 def checkout(cart, coupons)
   cart = apply_coupons cart, coupons
-    puts cart.inspect
+    
   cart = apply_clearance cart
+  puts cart.inspect
 
 
   cart_total = cart.reduce(0.0) { |sum, (label, item)| sum += item[:price] }
