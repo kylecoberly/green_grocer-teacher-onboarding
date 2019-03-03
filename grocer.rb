@@ -49,6 +49,7 @@ def find_cart_item(cart, name)
   match = cart.find {|label, item|
     label.eql? name
   }
+  puts match.inspect
   [match[0], match[1]].to_h
 end
 
