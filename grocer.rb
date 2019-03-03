@@ -58,7 +58,6 @@ def find_cart_item(cart, name)
 end
 
 def checkout(cart, coupons)
-  cart = consolidate_cart(cart)
   cart = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
 
   cart_total = cart.reduce(0.0) { |sum, (label, item)| sum += item[:price] * item[:count] }
