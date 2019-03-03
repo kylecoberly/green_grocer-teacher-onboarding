@@ -46,9 +46,7 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  cart = apply_coupons cart, coupons
-
-  cart = apply_clearance cart
+  cart = apply_coupons(apply_clearance(cart), coupons)
   puts cart.inspect
 
 
