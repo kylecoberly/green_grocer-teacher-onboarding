@@ -45,7 +45,7 @@ def apply_clearance(cart)
   }.to_h
 end
 
-def find_item cart, name
+def find_item(cart, name)
   cart.find {|label, item| label.eql?(name)}
 end
 
