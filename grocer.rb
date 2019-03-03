@@ -15,12 +15,17 @@ def consolidate_cart(cart)
   }
 end
 
-def apply_coupons(cart, coupon)
+def apply_coupons(cart, coupons)
   coupons.reduce(cart) {|cart, coupon|
     name = coupon[:item]
-    binding.pry
-    cart[name][:count] -= coupon[:count]
-    cart["#{name} W/COUPON"] = cart[name]
+
+    amount_to_subtract = cart[name][:count] >= coupon[:num] ? cart[name][:count] : coupon[:num] 
+    cart[name][:count] = cart[name][:count] - coupon[:num]
+    cart["#{name} W/COUPON"] = {
+      :price => coupon[:cost],
+      :clearance => cart[name][:clearance],
+      :count => coupon[:num]
+    }
 
     cart
   }
