@@ -47,7 +47,7 @@ end
 
 def find_cart_item(cart, name)
   cart.find {|label, item|
-    puts label, name
+    puts "#{label}, #{name}"
     label.eql?(name)
   }
 end
