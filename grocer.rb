@@ -55,7 +55,8 @@ end
 def checkout(cart, coupons)
   cart = consolidate_cart(cart)
   coupons = coupons.select {|coupon|
-    find_item(cart, coupon[:item])[:count] >= coupon[:num]
+    found_item = find_item(cart, coupon[:item])
+    found_item[:count] >= coupon[:num]
   }
   cart = apply_clearance(apply_coupons(cart, coupons))
 
