@@ -48,4 +48,5 @@ end
 def checkout(cart, coupons)
   cart = apply_coupons cart, coupons
   cart = apply_clearance cart
+  cart_total cart.reduce(0.0) { sum, (label, item) sum += item[:price] }
 end
