@@ -3,9 +3,6 @@ require "pry"
 def get_label hash
   hash.keys.first
 end
-def get_value hash
-  hash.values.first
-end
 
 def consolidate_cart(cart)
   cart.reduce({}) {|totals, item|
