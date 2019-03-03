@@ -23,7 +23,7 @@ def apply_coupons(cart, coupons)
     name = coupon[:item]
     cart_count = cart[name][:count]
     coupon_count = coupon[:num]
-    if cart[name] || cart_count < coupon_count
+    if cart[name] && cart_count >= coupon_count
       amount_to_increment = cart["#{name} W/COUPON"] ? cart["#{name} W/COUPON"][:count] + 1 : 1
 
       cart[name][:count] = cart_count - coupon_count
