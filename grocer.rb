@@ -39,7 +39,7 @@ end
 def apply_clearance(cart)
   cart.map {|label, item|
     if item[:clearance]
-      puts (item[:price] * 0.8 * 100).round
+      puts (item[:price] * 0.8 * 100).round / 100
       item[:price] = (item[:price] * 0.8 * 10000).round / 10000
     end
     [label, item]
