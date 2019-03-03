@@ -22,9 +22,10 @@ def apply_coupons(cart, coupons)
   coupons.reduce(cart) {|cart, coupon|
     name = coupon[:item]
     cart_count = cart[name][:count]
-    if cart[name] && cart_count
+    coupon_count = coupon[:num]
+    if cart[name] && cart_count >= coupon_count
 
-      coupon_count = coupon[:num]
+
       amount_to_subtract = cart_count >= coupon_count ? coupon_count : cart_count
       amount_to_increment = cart["#{name} W/COUPON"] ? cart["#{name} W/COUPON"][:count] + 1 : 1
 
