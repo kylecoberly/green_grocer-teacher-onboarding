@@ -50,6 +50,6 @@ def checkout(cart, coupons)
   puts cart.inspect
 
 
-  cart_total = cart.reduce(0.0) { |sum, (label, item)| sum += item[:price] }
+  cart_total = cart.reduce(0.0) { |sum, (label, item)| sum += item[:price] } ||= 0
   cart_total > 100 ? cart_total *= 0.9 : cart_total
 end
