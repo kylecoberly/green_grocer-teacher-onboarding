@@ -48,7 +48,7 @@ end
 def find_cart_item(cart, name)
   cart.find {|label, item|
     label.eql?(name)
-  }.to_h
+  }
 end
 
 def checkout(cart, coupons)
