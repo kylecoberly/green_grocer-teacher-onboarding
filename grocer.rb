@@ -37,7 +37,9 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  # code here
+  cart.map {|item|
+    
+  }
 end
 
 def checkout(cart, coupons)
