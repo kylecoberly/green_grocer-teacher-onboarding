@@ -50,7 +50,9 @@ def find_cart_item(cart, name)
     label.eql? name
   }
   puts match.inspect
-  [[match[0]], [match[1]]].to_h
+  match[0] = [match[0]]
+  match[1] = [match[1]]
+  match.to_h
 end
 
 def checkout(cart, coupons)
