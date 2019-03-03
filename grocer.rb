@@ -47,8 +47,9 @@ end
 
 def checkout(cart, coupons)
   cart = apply_coupons cart, coupons
-    puts cart
   cart = apply_clearance cart
+  puts cart
+
   cart_total = cart.reduce(0.0) { |sum, (label, item)| sum += item[:price] }
   cart_total > 100 ? cart_total *= 0.9 : cart_total
 end
