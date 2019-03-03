@@ -52,7 +52,7 @@ def find_cart_item(cart, name)
 
   match[0] = [match[0]]
   match[1] = [match[1]]
-  puts match.inspect
+  puts match.to_h.inspect
   match.to_h
 end
 
